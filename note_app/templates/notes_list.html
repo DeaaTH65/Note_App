@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Notes List | {% endblock title %}
+
+    
+{% block body %}
+
+    <div class = "container-fluid">
+        <h1>Notes List</h1>
+        <hr>
+        <ul>
+            {% for note in notes %}
+            <li>
+                <h3>{{ note.title }}</h3>
+                <p>{{ note.content }}</p>
+                <p><i>Created at: {{ note.timestamp }}</i></p>
+             
+            </li>
+            {% empty %}
+            <li>No notes found.</li>
+            {% endfor %}
+        </ul>
+
+        <button><a href="/create_note">Add Note</a></button>
+    </div>
+    
+{% endblock body %}

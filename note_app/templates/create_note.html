@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Create Note | {% endblock title %}
+
+
+
+{% block body %}
+
+    <div class = "container fluid">
+        <h1>Create Note</h1>
+        <hr>
+        <form method="POST" action="{% url 'create_note' %}">
+            {% csrf_token %}
+            <label for="title"><h3>Title:</label> <br>
+            <input type="text" id="title" name="title" required><br><br>
+            <label for="content">Content:</h3></label><br>
+            <textarea id="content" name="content" required></textarea><br><br>
+            <button type="submit">Save Note</button>
+        </form>
+
+        <button><a href="/">View Notes</a></button>
+    </div>
+    
+{% endblock body %}
